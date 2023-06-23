@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="Pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js project</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Minha Loja</h1>
+    </header>
+    <main>
+        <div class="title">
+            <h2>Produtos</h2>
+            <span>Cadastro de produtos da minha Loja.</span>
+        </div>
+        <div class="card">
+            <div class="lineInput">
+                <label>Produto</label>
+                <input type="text" id="produto" placeholder="Nome do produto">
+            </div>
+            <div class="lineInput">
+                <label>Valor</label>
+                <input type="text" id="valor" placeholder="Valor do produto">
+            </div>
+            <button onclick="produto.save()">Salvar</button>
+            <button onclick="produto.cancel()">Cancelar</button>
+        </div>
+        <div class="content">
+            <table border="1">
+                <thead>
+                    <th class="center">id</th>
+                    <th>produto</th>
+                    <th>valor</th>
+                    <th class="center">ações</th>
+                </thead>
+                <tbody id="tbody">
+                
+                </tbody>
+            </table>
+        </div>
+</main>
+</body> 
+</html>

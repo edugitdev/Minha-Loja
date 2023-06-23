@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --color-dark: rgb(14, 14, 14);
+    --color-dark2: rgb(32, 32, 32);
+    --color-dark3: rgb(22, 22, 22);
+    --color-white: #fff;
+    --color-white2: #fafbfcb9;
+    --color-white3: rgb(214,214,214);
+    --color-green: rgb(103, 195, 80);
+    --color-green2: rgb(51, 149, 26);
+    --color-purple: rgb(54, 6, 137);
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--color-white2);
+}
+
+header{
+    background-color: var(--color-purple);
+    padding: 10px;
+    color: var(--color-white);
+    text-align: center;
+}
+
+main{
+    padding: 30px 50px;
+}
+ span{
+    font-size: 14px;
+ }
+
+.card{
+
+    background-color: var(--color-white);
+    border: 1px solid var(--color-dark3);
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.lineInput{
+    display: grid;
+    margin-bottom: 10px;
+}
+
+input{  
+    padding: 10px;
+    border: 1px solid var(--color-dark2);
+    outline: 0;
+    border-radius: 3px;
+}
+button{
+    border: none;
+    padding: 10px;
+    outline: none;
+    background-color: var(--color-purple);
+    border-radius: 3px;
+    font-weight: bold;
+    color: var(--color-white);
+    cursor: pointer;
+    transition: all ease .4s;
+}
+ button:hover{
+    background-color: var(--color-green2);
+ }
+
+ .content{
+    margin-top: 15px;
+    
+}
+
+table{
+    border-collapse: collapse;
+    border: 1px solid var(--color-dark2);
+    width: 100%;
+}
+
+table th{
+    background-color: var(--color-white3);
+    text-align: left;
+    padding: 1px 5px;
+}
+
+table th, td {
+    padding: 1px, 5px;
+    text-align: left;
+}
+table td img{
+    width: 22px;
+}
+
+.center{
+    text-align: center;
+}
