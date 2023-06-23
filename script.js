@@ -5,6 +5,7 @@ class Produto {
       this.id = 1;
       this.arrayProdutos = [];
     }
+    
 
     save(){
       let produto = this.lerDados();
@@ -13,6 +14,8 @@ class Produto {
       }
       this.listaTabela()
     }
+    
+
     listaTabela(){
         let tbody = document.getElementById('tbody');
         tbody.innerText = '';
@@ -28,8 +31,21 @@ class Produto {
             td_id.innerText = this.arrayProdutos[i].id;
             td_produto.innerText = this.arrayProdutos[i].nomeProduto;
             td_valor.innerText = this.arrayProdutos[i].valor;
+           
+            //alinhando ao centro 
+            td_id.classList.add('center');
             
-
+            //adicionando botões
+            let imgEdit = document.createElement('img');
+            imgEdit.src = 'img/pencil-square.svg';
+            
+            
+            let imgDelet = document.createElement('img');
+            imgDelet.src = 'img/trash.svg';
+            
+            
+            td_acoes.appendChild(imgEdit);
+            td_acoes.appendChild(imgDelet);
 
         }
     }
@@ -45,6 +61,7 @@ class Produto {
         produto.valor = document.getElementById('valor').value;
         return produto;
     }
+
     validaCampos(produto){
         let msg = '';
 
@@ -62,7 +79,8 @@ class Produto {
         return true;
     }
     cancel(){
-
+        document.getElementById('produto').value = '';
+        document.getElementById('valor').value = '';''
     }
          
 }
