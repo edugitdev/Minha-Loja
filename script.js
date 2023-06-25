@@ -1,28 +1,29 @@
 
 class Produto {
 
-    constructor(){
-      this.id = 1;
-      this.arrayProdutos = [];
+    constructor() {
+        this.id = 1;
+        this.arrayProdutos = [];
     }
-    
 
-    save(){
-      let produto = this.lerDados();
-      if(this.validaCampos(produto)){
-      this.adicionar(produto)
-      }
-      this.listaTabela()
+
+    save() {
+        let produto = this.lerDados();
+        if (this.validaCampos(produto)) {
+            this.adicionar(produto)
+        }
+        this.listaTabela()
+        this.cancel();
     }
-    
 
-    listaTabela(){
+
+    listaTabela() {
         let tbody = document.getElementById('tbody');
         tbody.innerText = '';
-        
-        for(let i =0; i< this.arrayProdutos.length; i++){
+
+        for (let i = 0; i < this.arrayProdutos.length; i++) {
             let tr = tbody.insertRow();
-        
+
             let td_id = tr.insertCell();
             let td_produto = tr.insertCell();
             let td_valor = tr.insertCell();
@@ -31,30 +32,29 @@ class Produto {
             td_id.innerText = this.arrayProdutos[i].id;
             td_produto.innerText = this.arrayProdutos[i].nomeProduto;
             td_valor.innerText = this.arrayProdutos[i].valor;
-           
+
             //alinhando ao centro 
             td_id.classList.add('center');
-            
-            //adicionando botões
+
+            //adicionando imagens dos botões
             let imgEdit = document.createElement('img');
             imgEdit.src = 'img/pencil-square.svg';
-            
-            
+
             let imgDelet = document.createElement('img');
             imgDelet.src = 'img/trash.svg';
-            
-            
+            imgDelet.setAttribute("onclick", "produto.deletar("+this.arrayProdutos[i].id+")");
+
             td_acoes.appendChild(imgEdit);
             td_acoes.appendChild(imgDelet);
 
         }
     }
-    adicionar(produto){
+    adicionar(produto) {
         this.arrayProdutos.push(produto);
         this.id++;
     }
 
-    lerDados(){
+    lerDados() {
         let produto = {}
         produto.id = this.id;
         produto.nomeProduto = document.getElementById('produto').value;
@@ -62,26 +62,37 @@ class Produto {
         return produto;
     }
 
-    validaCampos(produto){
+    validaCampos(produto) {
         let msg = '';
 
-        if(produto.nomeProduto == ''){
+        if (produto.nomeProduto == '') {
             msg += '- informe o nome do Produto \n';
         }
 
-        if(produto.valor ==''){
+        if (produto.valor == '') {
             msg += '- informe o valor do Produto \n';
         }
-        if(msg!= ''){
+        if (msg != '') {
             alert(msg);
             return false;
         }
         return true;
     }
-    cancel(){
+    cancel() {
         document.getElementById('produto').value = '';
-        document.getElementById('valor').value = '';''
+        document.getElementById('valor').value = '';
     }
-         
+
+    deletar(id){
+        let tbody = document.getElementById('tbody');
+
+            for(let i = 0; i < this.arrayProdutos.length; i++){
+                if(this.arrayProdutos[i].id == id){
+                    this.arrayProdutos.splice(i, 1);
+                    tbody.deleteRow(i);
+                }
+            }
+    }
+
 }
-let produto = new Produto();
+    let produto = new Produto();
